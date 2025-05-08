@@ -1,4 +1,4 @@
-# Sentiment Analysis Pipeline using VADER + TF-IDF + Random Forest
+# Sentiment Analysis using VADER 
 
 This project implements a complete sentiment analysis pipeline on textual data using a combination of rule-based and machine learning techniques. It performs cleaning, sentiment generalization, vectorization, model training, evaluation, and prediction.
 
@@ -6,8 +6,8 @@ This project implements a complete sentiment analysis pipeline on textual data u
 
 ## Table of Contents
 
-- [ Dataset](#-dataset)
-- [ Workflow](#️-workflow)
+- [Dataset](#-dataset)
+- [Workflow](#️-workflow)
 - [Requirements](#-requirements)
 - [Step-by-Step Process](#-step-by-step-process)
   - [1️⃣ Load and Prepare Data](#1️⃣-load-and-prepare-data)
@@ -16,9 +16,7 @@ This project implements a complete sentiment analysis pipeline on textual data u
   - [4️⃣ Vectorization and Model Training](#4️⃣-vectorization-and-model-training)
   - [5️⃣ Model Evaluation](#5️⃣-model-evaluation)
   - [6️⃣ Predict on New Data](#6️⃣-predict-on-new-data)
-  - [7️⃣ Save Model Artifacts](#7️⃣-save-model-artifacts)
 - [Example Output](#-example-output)
-- [Folder Structure](#-folder-structure)
 - [Notes](#-notes)
 
 ---
