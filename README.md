@@ -1,3 +1,4 @@
+
 # Sentiment Analysis using VADER 
 
 This project implements a complete sentiment analysis pipeline on textual data using a combination of rule-based and machine learning techniques. It performs cleaning, sentiment generalization, vectorization, model training, evaluation, and prediction.
@@ -6,22 +7,22 @@ This project implements a complete sentiment analysis pipeline on textual data u
 
 ## Table of Contents
 
-- [Dataset](#-dataset)
-- [Workflow](#️-workflow)
-- [Requirements](#-requirements)
-- [Step-by-Step Process](#-step-by-step-process)
-  - [1️⃣ Load and Prepare Data](#1️⃣-load-and-prepare-data)
-  - [2️⃣ Sentiment Categorization using VADER](#2️⃣-sentiment-categorization-using-vader)
-  - [3️⃣ Text Preprocessing](#3️⃣-text-preprocessing)
-  - [4️⃣ Vectorization and Model Training](#4️⃣-vectorization-and-model-training)
-  - [5️⃣ Model Evaluation](#5️⃣-model-evaluation)
-  - [6️⃣ Predict on New Data](#6️⃣-predict-on-new-data)
-- [Example Output](#-example-output)
-- [Notes](#-notes)
+- [Dataset](#dataset)
+- [Workflow](#workflow)
+- [Requirements](#requirements)
+- [Step-by-Step Process](#step-by-step-process)
+  - [1️⃣ Load and Prepare Data](#1-load-and-prepare-data)
+  - [2️⃣ Sentiment Categorization using VADER](#2-sentiment-categorization-using-vader)
+  - [3️⃣ Text Preprocessing](#3-text-preprocessing)
+  - [4️⃣ Vectorization and Model Training](#4-vectorization-and-model-training)
+  - [5️⃣ Model Evaluation](#5-model-evaluation)
+  - [6️⃣ Predict on New Data](#6-predict-on-new-data)
+- [Example Output](#example-output)
+- [Notes](#notes)
 
 ---
 
-## Dataset
+## <a id="dataset"></a> Dataset
 
 - Format: CSV
 - Columns:
@@ -31,7 +32,7 @@ This project implements a complete sentiment analysis pipeline on textual data u
 
 ---
 
-## Workflow
+## <a id="workflow"></a> Workflow
 
 ```mermaid
 graph LR
@@ -44,9 +45,10 @@ F --> G[SMOTE Oversampling]
 G --> H[Random Forest Model]
 H --> I[Evaluate and Save]
 ```
+
 ---
 
-## Requirements
+## <a id="requirements"></a> Requirements
 
 Install the following Python libraries:
 
@@ -66,9 +68,9 @@ nltk.download('vader_lexicon')
 
 ---
 
-## Step-by-Step Process
+## <a id="step-by-step-process"></a> Step-by-Step Process
 
-### 1️⃣ Load and Prepare Data
+### <a id="1-load-and-prepare-data"></a> 1️⃣ Load and Prepare Data
 
 * Load CSV using pandas
 * Strip whitespace from `Sentiment` labels
@@ -88,11 +90,11 @@ df['Sentiment'] = df['Sentiment'].map(lambda x: str(x).strip())
 # Create working copy
 cdf = df.copy()
 ```
-### 2️⃣ Sentiment Categorization using VADER
+
+### <a id="2-sentiment-categorization-using-vader"></a> 2️⃣ Sentiment Categorization using VADER
 
 * Use NLTK's `SentimentIntensityAnalyzer` to score each unique label
 * Define thresholds:
-
   * Positive ≥ 0.35
   * Neutral between -0.20 and 0.35
   * Negative ≤ -0.20
@@ -130,7 +132,7 @@ print("\nUnique Sentiments After Generalization:", cdf['Sentiment'].nunique())
 print(cdf['Sentiment'].value_counts())
 ```
 
-### 3️⃣ Text Preprocessing
+### <a id="3-text-preprocessing"></a> 3️⃣ Text Preprocessing
 
 * Lowercase all text
 * Remove punctuation and digits
@@ -157,7 +159,8 @@ def clean_text(text):
 
 cdf['Processed_Text'] = cdf['Text'].astype(str).apply(clean_text)
 ```
-### 4️⃣ Vectorization and Model Training
+
+### <a id="4-vectorization-and-model-training"></a> 4️⃣ Vectorization and Model Training
 
 * Vectorize processed text using `TfidfVectorizer`
 * Split into training and test sets (80/20)
@@ -184,11 +187,10 @@ model = RandomForestClassifier(n_estimators=150, class_weight='balanced', random
 model.fit(X_resampled, y_resampled)
 ```
 
-### 5️⃣ Model Evaluation
+### <a id="5-model-evaluation"></a> 5️⃣ Model Evaluation
 
 * Predict on test data
 * Show:
-
   * Classification report
   * Confusion matrix
   * Stratified 5-fold cross-validation accuracy
@@ -222,7 +224,7 @@ Positive | 0.88 | 0.86 | 0.87 | 132
 Accuracy: 81%
 ```
 
-### 6️⃣ Predict on New Data
+### <a id="6-predict-on-new-data"></a> 6️⃣ Predict on New Data
 
 ```python
 predict_on_new_data(
@@ -234,8 +236,9 @@ predict_on_new_data(
 * The input CSV should contain a `Text` column.
 * Outputs a `Predicted_Sentiment` column.
 
+---
 
-## Example Output
+## <a id="example-output"></a> Example Output
 
 ```text
 Sample Predictions:
@@ -247,16 +250,14 @@ Text                                             | Sentiment
 "Climate response has improved..."               | Positive  
 ```
 
-
-
 ---
 
-## Notes
+## <a id="notes"></a> Notes
 
 * Sentiment thresholds can be adjusted if needed to suit the case.
+
 ---
 
 ## ✨ Author
 
 Made By Vaishali, Sana, Smriti, Vedant, Darshan
-
