@@ -259,5 +259,6 @@ Text                                             | Sentiment
 ---
 
 ## ✨ Author
-
+Guided By: Shrey Pandya
 Made By Vaishali, Sana, Smriti, Vedant, Darshan
+Certificate: [Link](https://github.com/yuu2430/sentiment-analysis/blob/main/Sentiment%20Analysis%20certificate.pdf)
